@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Residual Memory - Kimbo&#39;s Personal Blog</title>
+    <link>http://kimbochen.github.io/</link>
+    <description>Recent content on Residual Memory - Kimbo&#39;s Personal Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Feb 2021 20:45:44 +0800</lastBuildDate><atom:link href="http://kimbochen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Capturing Residual Memory</title>
+      <link>http://kimbochen.github.io/posts/capturing-residual-memory/</link>
+      <pubDate>Sat, 20 Feb 2021 20:45:44 +0800</pubDate>
+      
+      <guid>http://kimbochen.github.io/posts/capturing-residual-memory/</guid>
+      <description>The first post of Kimbo Chen&amp;rsquo;s personal blog.
+I hope that years from now, I wouldn&amp;rsquo;t cringe when reading this post.
+Yes, I couldn&amp;rsquo;t come up with a more poetic expression and could only think of ResNets.
+ Motivation Back in 2019 when travelling is not impossible, during my tour in the Canadian Rockies, it occured to me that this might be my first time and last time to see these spectacular scenery.</description>
+    </item>
+    
+  </channel>
+</rss>
