@@ -1,4 +1,4 @@
-baseURL = "http://kimbochen.github.io"
+baseURL = "https://kimbochen.github.io/"
 languageCode = "en-us"
 title = "Residual Memory - Kimbo's Personal Blog"
 theme="fuji"
