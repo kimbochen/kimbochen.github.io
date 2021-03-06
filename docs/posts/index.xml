@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Residual Memory - Kimbo&#39;s Personal Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 20:45:44 +0800</lastBuildDate><atom:link href="https://kimbochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Mar 2021 10:53:55 +0800</lastBuildDate><atom:link href="https://kimbochen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Journey with Nand2Tetris - Part 1</title>
+      <link>https://kimbochen.github.io/posts/nand2tetris-journey-1/</link>
+      <pubDate>Sat, 06 Mar 2021 10:53:55 +0800</pubDate>
+      
+      <guid>https://kimbochen.github.io/posts/nand2tetris-journey-1/</guid>
+      <description>This is part 1 of the series &amp;ldquo;My Journey with Nand2Tetris&amp;rdquo;, covering things I wish I knew before starting.
+What is Nand2Tetris? Nand2Tetris is an introductory course to computer engineering, covering almost every level of abstraction, from gate-level logic (Nand gates) to operating system-level software (Tetris).
+Motivation to Take the Course Last year, I decided to brush up my basic computer science skills and searched for learning resources on computer architecture.</description>
+    </item>
+    
     <item>
       <title>Capturing Residual Memory</title>
       <link>https://kimbochen.github.io/posts/capturing-residual-memory/</link>

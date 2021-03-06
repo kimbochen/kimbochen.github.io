@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="HandheldFriendly" content="True" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="generator" content="Hugo 0.80.0" />
+
+
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/dsrkafuu/dsr-cdn@1/images/favicons/dsrca/favicon.ico" />
+
+
+
+<title>My Journey with Nand2Tetris - Part 1 - Residual Memory - Kimbo&#39;s Personal Blog</title>
+
+
+
+
+
+<meta property="og:title" content="My Journey with Nand2Tetris - Part 1" />
+<meta name="twitter:title" content="My Journey with Nand2Tetris - Part 1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kimbochen.github.io/posts/nand2tetris-journey-1/" /><meta property="og:description" content="This is part 1 of the series &ldquo;My Journey with Nand2Tetris&rdquo;, covering things I wish I knew before starting.
+What is Nand2Tetris? Nand2Tetris is an introductory course to computer engineering, covering almost every level of abstraction, from gate-level logic (Nand gates) to operating system-level software (Tetris).
+Motivation to Take the Course Last year, I decided to brush up my basic computer science skills and searched for learning resources on computer architecture." />
+<meta name="twitter:description" content="This is part 1 of the series &ldquo;My Journey with Nand2Tetris&rdquo;, covering things I wish I knew before starting.
+What is Nand2Tetris? Nand2Tetris is an introductory course to computer engineering, covering almost every level of abstraction, from gate-level logic (Nand gates) to operating system-level software (Tetris).
+Motivation to Take the Course Last year, I decided to brush up my basic computer science skills and searched for learning resources on computer architecture." /><meta name="twitter:card" content="summary" /><meta property="article:published_time" content="2021-03-06T10:53:55+08:00" /><meta property="article:modified_time" content="2021-03-06T10:53:55+08:00" />
+
+
+<style>
+    @media (prefers-color-scheme: dark) {
+        body[data-theme='auto'] img {
+            filter: brightness(60%);
+        }
+    }
+
+    body[data-theme='dark'] img {
+        filter: brightness(60%);
+    }
+</style>
+
+
+
+<link rel="stylesheet" href="https://kimbochen.github.io/assets/css/fuji.min.css" />
+
+
+
+
+
+</head>
+
+<body data-theme="auto">
+    <script data-cfasync="false">
+  
+  var fujiThemeData = localStorage.getItem('fuji_data-theme');
+  
+  if (!fujiThemeData) {
+    localStorage.setItem('fuji_data-theme', 'auto');
+  } else {
+    
+    if (fujiThemeData !== 'auto') {
+      document.body.setAttribute('data-theme', fujiThemeData === 'dark' ? 'dark' : 'light');
+    }
+  }
+</script>
+    <header>
+    <div class="container-lg clearfix">
+        <div class="col-12 header">
+            <a class="title-main" href="https://kimbochen.github.io/">Residual Memory - Kimbo&#39;s Personal Blog</a>
+            
+        </div>
+    </div>
+</header>
+
+    <main>
+        <div class="container-lg clearfix">
+            
+            <div class="col-12 col-md-9 float-left content">
+                
+<article>
+    
+    <h2 class="post-item post-title">
+        <a href="https://kimbochen.github.io/posts/nand2tetris-journey-1/">My Journey with Nand2Tetris - Part 1</a>
+    </h2>
+    <div class="post-item post-meta">
+        <span><i class="iconfont icon-today-sharp"></i>&nbsp;2021-03-06</span><span><i class="iconfont icon-pricetags-sharp"></i>&nbsp;No tag</span>
+
+    </div>
+    
+    <div class="post-content markdown-body">
+        <p>This is part 1 of the series &ldquo;My Journey with Nand2Tetris&rdquo;, covering things I
+wish I knew before starting.</p>
+<h2 id="what-is-nand2tetris">What is Nand2Tetris?</h2>
+<p>Nand2Tetris is an introductory course to computer engineering, covering almost
+every level of abstraction, from gate-level logic (Nand gates) to operating
+system-level software (Tetris).</p>
+<h2 id="motivation-to-take-the-course">Motivation to Take the Course</h2>
+<p>Last year, I decided to brush up my basic computer science skills and searched
+for learning resources on computer architecture. After going through numerous
+recommendations, I landed on this course. The reason I took this course is the
+fact that it is <strong>project-based</strong>, meaning the goal is to <em>implement</em> an item
+(e.g., An ALU) after being armed with <em>just enough</em> knowledge to do so. As
+someone who prefers learning by doing, I am deeply attracted to this way of
+teaching. In addtion to reviewing computer architecture and operating system
+concepts, the course covers compilers, which I happen to be interested in.<br>
+However, I acknowledge that this is in fact an ambitious introductory course,
+which aims for breadth at the cost of some depth. Therefore, I hope to learn
+just enough to be able to read the more advanced topics.</p>
+<h2 id="things-i-wish-i-knew-before-starting">Things I Wish I Knew before Starting</h2>
+<h3 id="follow-the-course-on-coursera">Follow the course on Coursera.</h3>
+<p>I had trouble finding the resources on the course website and figured it out
+eventually.</p>
+<blockquote>
+<p><img class="img-zoomable" src="/icon_explanation.png" alt="Icon Explanation" />
+<br>
+These icons are links to (from left to right) the instructions, the slides,
+and the book chapter. Yes, it took me a shamefully long time to find out those
+were links.</p>
+</blockquote>
+<p>I would still recommend following the course on Coursera since watching videos
+is much faster than reading and the book for the second part of the course
+is not available for free.</p>
+<h3 id="read-other-peoples-solution-to-learn-the-syntax-of-the-hdl">Read other people&rsquo;s solution to learn the syntax of the HDL.</h3>
+<p>To be clear, <strong>this is not encouraging you to cheat</strong>. The HDL guide is great,
+but I had a hard time finding the functionality I want, namely, the slicing
+syntax. I end up finding it by reading other people&rsquo;s solution.</p>
+<h3 id="the-hdl-syntax">The HDL syntax</h3>
+<p>I believe the HDL is decently flexible despite being educational. Still,
+there are some confusing parts I wish I had learned earlier.</p>
+<h4 id="signal-names-with-underscore-is-not-allowed">Signal names with underscore is NOT allowed.</h4>
+<p>After wrestling with mysterious errors for a while, I believe that
+<code>snake_case</code> signal names are not allowed.</p>
+<h4 id="slicing">Slicing</h4>
+<p><strong>Only input and output signals of modules can be sliced.</strong> In other words,
+all internal wires cannot be sliced. Suppose I have an internal 2-bit wire
+<code>tmp</code> that needs to be split between modules <code>Bar</code> and <code>Thud</code>. Ideally, I
+would write:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vhdl" data-lang="vhdl">Foo(<span style="color:#66d9ef">in</span><span style="color:#f92672">=</span>a, <span style="color:#66d9ef">out</span><span style="color:#f92672">=</span>tmp);
+Bar(<span style="color:#66d9ef">in</span><span style="color:#f92672">=</span>tmp[<span style="color:#ae81ff">0</span>], <span style="color:#66d9ef">out</span><span style="color:#f92672">=</span>barOut);
+Thud(<span style="color:#66d9ef">in</span><span style="color:#f92672">=</span>tmp[<span style="color:#ae81ff">1</span>], <span style="color:#66d9ef">out</span><span style="color:#f92672">=</span>thudOut);
+</code></pre></div><p>In practice, it is the <strong>output</strong> signal that should be split:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vhdl" data-lang="vhdl">Foo(<span style="color:#66d9ef">in</span><span style="color:#f92672">=</span>a, <span style="color:#66d9ef">out</span>[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span>barIn, <span style="color:#66d9ef">out</span>[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>thudIn);
+Bar(<span style="color:#66d9ef">in</span><span style="color:#f92672">=</span>barin, <span style="color:#66d9ef">out</span><span style="color:#f92672">=</span>barOut);
+Thud(<span style="color:#66d9ef">in</span><span style="color:#f92672">=</span>thudin, <span style="color:#66d9ef">out</span><span style="color:#f92672">=</span>thudOut);
+</code></pre></div><h4 id="test-scripts">Test scripts</h4>
+<p>The syntax of a <code>.tst</code> file is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">load HDL_FILE, output-file OUT_FILE, compare-to CMP_FILE, output-list OUT_LIST;
+</code></pre></div><p><code>OUT_LIST</code> contains the output format of each signal, separated by a space.
+<code>s%R.L.C.R</code> indicates signal <code>s</code> is represented as <code>R</code> (decimal <code>D</code> or binary
+<code>B</code>), taking up <code>C</code> characters, with <code>L</code> spaces on the left, <code>R</code> spaces on the
+right.</p>
+<h3 id="how-to-see-the-full-error-message-when-compiling-the-hdl-code">How to see the full error message when compiling the HDL code.</h3>
+<p>Due to the fixed window size of the hardware simulator, the error message is
+truncated most of the time. I simply googled my way through the problem,
+throwing all the error message I have at the search box. It was only almost
+finishing project 3 did I realize the full error message can be shown by
+executing this command in the command line: <code>./HardwareSimulator.sh foo.tst</code>.</p>
+<h3 id="dont-over-engineer">Don&rsquo;t over-engineer.</h3>
+<p>This is merely my suggestion. In my opinion, the point of implementation is to
+grasp the concept, and the fact that the projects are often simplified version
+of the real thing, overly-optimizing does not increase one&rsquo;s understanding to
+the topic. For example, it&rsquo;s not worth my time replacing clear abstractions of
+an ALU with obscure combinational logic in order to minimize the number of
+Nand gates. Besides, I believe in reality, an ALU is way more complicated and
+there are algorithms to deal with optimizations.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>These are the things I wish I knew before starting, and I hope that this could
+help those who are taking this course. Thank you for reading and feel free to
+contact me at Twitter @kimbochen.</p>
+
+    </div>
+</article>
+
+
+
+
+            </div>
+            <aside class="col-12 col-md-3 float-left sidebar">
+    
+    <div class="sidebar-item sidebar-pages">
+        <h3>Pages</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <div class="sidebar-item sidebar-links">
+        <h3>Links</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <div class="sidebar-item sidebar-tags">
+        <h3>Tags</h3>
+        <div>
+            
+        </div>
+    </div>
+    <div class="sidebar-item sidebar-toc">
+        <h3>TOC</h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-nand2tetris">What is Nand2Tetris?</a></li>
+    <li><a href="#motivation-to-take-the-course">Motivation to Take the Course</a></li>
+    <li><a href="#things-i-wish-i-knew-before-starting">Things I Wish I Knew before Starting</a>
+      <ul>
+        <li><a href="#follow-the-course-on-coursera">Follow the course on Coursera.</a></li>
+        <li><a href="#read-other-peoples-solution-to-learn-the-syntax-of-the-hdl">Read other people&rsquo;s solution to learn the syntax of the HDL.</a></li>
+        <li><a href="#the-hdl-syntax">The HDL syntax</a></li>
+        <li><a href="#how-to-see-the-full-error-message-when-compiling-the-hdl-code">How to see the full error message when compiling the HDL code.</a></li>
+        <li><a href="#dont-over-engineer">Don&rsquo;t over-engineer.</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+</aside>
+        </div>
+        <div class="btn">
+    <div class="btn-menu" id="btn-menu">
+        <i class="iconfont icon-grid-sharp"></i>
+    </div>
+    <div class="btn-toggle-mode">
+        <i class="iconfont icon-contrast-sharp"></i>
+    </div>
+    <div class="btn-scroll-top">
+        <i class="iconfont icon-chevron-up-circle-sharp"></i>
+    </div>
+</div>
+<aside class="sidebar-mobile" style="display: none;">
+  <div class="sidebar-wrapper">
+    
+    <div class="sidebar-item sidebar-pages">
+        <h3>Pages</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <div class="sidebar-item sidebar-links">
+        <h3>Links</h3>
+        <ul>
+            
+        </ul>
+    </div>
+    
+    <div class="sidebar-item sidebar-tags">
+        <h3>Tags</h3>
+        <div>
+            
+        </div>
+    </div>
+    
+    
+    
+    
+  </div>
+</aside>
+    </main>
+
+    <footer>
+    <div class="container-lg clearfix">
+        <div class="col-12 footer">
+            
+            <span>&copy; 2021
+                <a href="https://kimbochen.github.io/"></a>
+                
+                | Powered by <a href="https://github.com/dsrkafuu/hugo-theme-fuji/"
+                   target="_blank">Fuji-v2</a> &amp; <a href="https://gohugo.io/"
+                                                    target="_blank">Hugo</a> 
+            </span>
+        </div>
+    </div>
+</footer>
+
+    
+<script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.0/lazysizes.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/components/prism-core.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+
+<script defer src="/assets/js/fuji.min.js"></script>
+
+
+</body>
+
+</html>
